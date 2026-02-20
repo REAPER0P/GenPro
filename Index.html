@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus Tools Hub</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --bg-gradient: linear-gradient(135deg, #e0f2fe 0%, #f8fafc 100%);
+            --glass-bg: rgba(255, 255, 255, 0.65);
+            --glass-border: rgba(255, 255, 255, 0.4);
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --accent: #3b82f6;
+            --shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        body {
+            background: var(--bg-gradient);
+            background-attachment: fixed;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            color: var(--text-main);
+            overflow-x: hidden;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .app-container {
+            width: 100%;
+            max-width: 420px;
+            padding: 24px;
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+            padding: 0 4px;
+        }
+
+        .logo-section h1 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            background: linear-gradient(to right, #1e40af, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Profile link wrapper style */
+        .profile-link {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .profile-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--glass-border);
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .profile-icon:active { transform: scale(0.9); }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .tool-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 20px 16px;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-6px);
+            background: rgba(255, 255, 255, 0.8);
+            border-color: var(--accent);
+        }
+
+        .tool-card:active { transform: scale(0.94); }
+
+        .icon-wrapper {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 14px;
+            color: var(--accent);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.1);
+        }
+
+        .tool-card h3 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: var(--text-main);
+        }
+
+        .tool-card p {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            line-height: 1.3;
+        }
+
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="app-container">
+        <header>
+            <div class="logo-section">
+                <h1>Nexus Hub</h1>
+            </div>
+            <a href="profile.html" target="_blank" class="profile-link">
+                <div class="profile-icon">
+                    <i data-lucide="user" size="20"></i>
+                </div>
+            </a>
+        </header>
+
+        <main class="tools-grid">
+            <a href="https://example.com/analytics" class="tool-card">
+                <div class="icon-wrapper">
+                    <i data-lucide="bar-chart-3"></i>
+                </div>
+                <h3>Analytics</h3>
+                <p>Track your daily performance</p>
+            </a>
+
+            <a href="https://example.com/vault" class="tool-card">
+                <div class="icon-wrapper">
+                    <i data-lucide="shield-check"></i>
+                </div>
+                <h3>Vault</h3>
+                <p>Secure asset management</p>
+            </a>
+
+            <a href="https://example.com/tasks" class="tool-card">
+                <div class="icon-wrapper">
+                    <i data-lucide="layers"></i>
+                </div>
+                <h3>Flow</h3>
+                <p>Optimize your workflow</p>
+            </a>
+
+            <a href="https://example.com/cloud" class="tool-card">
+                <div class="icon-wrapper">
+                    <i data-lucide="cloud-rain"></i>
+                </div>
+                <h3>Sync</h3>
+                <p>Cloud node status</p>
+            </a>
+
+            <a href="https://example.com/wallet" class="tool-card">
+                <div class="icon-wrapper">
+                    <i data-lucide="wallet"></i>
+                </div>
+                <h3>Wallet</h3>
+                <p>Manage your balances</p>
+            </a>
+
+            <a href="https://example.com/settings" class="tool-card">
+                <div class="icon-wrapper">
+                    <i data-lucide="settings"></i>
+                </div>
+                <h3>Config</h3>
+                <p>System preferences</p>
+            </a>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 Nexus Productivity Inc.</p>
+        </footer>
+    </div>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
+
